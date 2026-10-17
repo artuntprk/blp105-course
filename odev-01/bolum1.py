@@ -58,4 +58,13 @@ records = [
 ]
 # Sadece for, if ve sözlük. Counter ve groupby yasak.
 # Beklenen çıktı: {"VTYS": 3, "Yapay Zeka": 2, "Robotik": 1}
+sayac = {}
 
+for kayit in records:
+    ders = kayit["course"]
+    if ders in sayac:
+        sayac[ders] = sayac[ders] + 1
+    else:
+        sayac[ders] = 1
+
+print(sayac)
