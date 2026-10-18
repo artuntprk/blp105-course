@@ -12,7 +12,7 @@
 
 **PR bağlantısı:** `https://github.com/artuntprk/blp105-course/pull/1`
 
-**Commit sayısı:** 9
+**Commit sayısı:** 11
 
 ---
 
