@@ -1,89 +1,64 @@
 # Ödev Raporu
 
-> **Bu rapor yazdırılıp derste elden teslim edilir.** Aynı dosya reponda `odevler/odev-NN/rapor.md` olarak da durur.
-> Bir sayfa yeterli, en fazla iki. Bilgisayarda doldurup yazdırabilirsin, elle de doldurabilirsin.
-
 ---
 
-**Ödev no:** Ödev ____     **Hafta:** ____     **Tarih:** ____ / ____ / 2026
+**Ödev no:** Ödev 1     **Hafta:** 1-5     **Tarih:** 23 / 10 / 2026
 
-**Ad Soyad:** ______________________________  **Öğrenci No:** ______________
+**Ad Soyad:** Artun Toprak Dereli  **Öğrenci No:** 202607131017
 
-**Program:** ☐ Yapay Zeka Operatörlüğü  ☐ Robotik ve Yapay Zeka
+**Program:** ☒ Yapay Zeka Operatörlüğü  ☐ Robotik ve Yapay Zeka
 
-**Kullandığım veritabanı:** ☐ `llm_ops`  ☐ `robot_fleet`
+**Kullandığım veritabanı:** ☒ `llm_ops`  ☐ `robot_fleet`
 
-**PR bağlantısı:** `https://github.com/` ______________________________________
+**PR bağlantısı:** `https://github.com/artuntprk/blp105-course/pull/1`
 
-**Commit sayısı:** ______
+**Commit sayısı:** 9
 
 ---
 
 ## 1. Ne yaptım
 
-Bu ödevde neyi çözdüğünü 3-5 cümleyle anlat. Soru listesini tekrar yazma; **ne öğrendiğini** yaz.
-
-______________________________________________________________________
-
-______________________________________________________________________
-
-______________________________________________________________________
-
-______________________________________________________________________
+İlk beş haftanın konularını tek ödevde uyguladım. Python'da bir kodu önce kafamdan izleyip tahmin ettim, döngüyle en uzun seriyi buldum ve sözlükle elle gruplama yaptım. Veritabanı kavramlarını (Excel'in sorunları, birincil anahtar, DBMS, aynı anda düzenleme) kendi sözlerimle yazdım. llm_ops veritabanında SELECT/WHERE ve GROUP BY/HAVING/NULL sorularını çözdüm. En çok, NULL'ın sonucu sessizce değiştirdiğini öğrendim.
 
 ---
 
 ## 2. Sonuçlar
 
-Çözdüğüm soru sayısı: ______ / ______     Bonus: ☐ denedim ☐ denemedim
+Çözdüğüm soru sayısı: 37 / 37     Bonus: ☐ denedim ☒ denemedim
 
-En zorlandığım soru: **Soru ____**
+En zorlandığım soru: **Soru 14 (Hafta 4)**
 
 Neden zorlandım:
 
-______________________________________________________________________
-
-______________________________________________________________________
+Türkçe sıralama için COLLATE kullanınca "for SELECT DISTINCT, ORDER BY expressions must appear in select list" hatası aldım.
 
 Nasıl çözdüm:
 
-______________________________________________________________________
-
-______________________________________________________________________
+DISTINCT'i bir alt sorguya aldım, COLLATE'li sıralamayı dışarıdaki sorguda yaptım.
 
 ---
 
 ## 3. Beklemediğim bir sonuç
 
-Bir sorgu beklediğinden farklı sayıda satır döndürdü mü? Hangisi ve neden?
+**Soru no:** Hafta 5, Soru 12
 
-(Eksik veri, koşul önceliği, büyük/küçük harf, birim dönüşümü… Böyle bir durumla karşılaşmadıysan "karşılaşmadım" yaz, ama önce iyi bak.)
-
-**Soru no:** ______
-
-**Beklediğim:** ______ satır   **Gelen:** ______ satır
+**Beklediğim:** 1 satır   **Gelen:** 0 satır
 
 **Sebebi:**
 
-______________________________________________________________________
-
-______________________________________________________________________
+WHERE cost_usd = NULL hata vermedi ama hiç satır getirmedi. NULL "bilinmiyor" demek olduğu için hiçbir şeye eşit sayılmıyor. IS NULL ile faturası gelmemiş 1 çağrıyı buldum.
 
 ---
 
 ## 4. Aldığım bir hata ve çözümü
 
-Dönem boyunca hata mesajı okumayı öğreniyoruz. Bu hafta aldığın bir hatayı yaz.
-
 **Hata mesajı:**
 
-______________________________________________________________________
+bash: createdb: command not found
 
 **Sebebi ve çözümü:**
 
-______________________________________________________________________
-
-______________________________________________________________________
+Codespaces'te PostgreSQL kurulu değildi. sudo apt-get install postgresql ile kurdum, sudo service postgresql start ile başlattım, sonra veritabanını yükledim.
 
 ---
 
@@ -91,43 +66,37 @@ ______________________________________________________________________
 
 ☐ Bu ödevde yapay zeka aracı **kullanmadım.**
 
-☐ Kullandım, aşağıda belirttim:
+☒ Kullandım, aşağıda belirttim:
 
 | Soru no | Araç | Ne sordum (özet) | Cevabı nasıl doğruladım |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> "Nasıl doğruladım" sütunu en önemlisi. "Çalıştırdım, 4 satır döndü, tabloyla karşılaştırdım" gibi somut bir şey yaz.
+| Kurulum | Claude (claude.ai) | GitHub fork, GitHub Desktop, dosya yapısı; boş iskelet dosyalarını Claude hazırladı | Adımları uygulayıp dosyaları GitHub'da gördüm |
+| 1.1 | Claude | Tahmini kendim yaptım, Claude yalnızca kontrol etti | Claude'un kontrolüyle karşılaştırdım (total = 14, result = [7, 9, 5, 1]) |
+| 1.2, 1.3 | Claude | Kod ve sözde kod | Kodu çalıştırıp çıktıyı kontrol ettim (1.2'de 5, 1.3'te beklenen sözlük) |
+| Bölüm 2 | Claude | Excel sorunlarını konuşarak buldum, taslak aldım | Kendi sözlerimle yeniden yazdım |
+| Bölüm 3, 4 | Claude | SQL sorguları ve yorum taslakları | Codespaces'te kendim çalıştırdım, satır sayılarını psql çıktısıyla karşılaştırdım |
 
 ---
 
 ## 6. Öz değerlendirme
 
-Rubriğe ([RUBRIK.md](../RUBRIK.md)) göre kendine bir seviye ver. Bu puanını etkilemez.
-
 | Ölçüt | 4 Tam | 3 İyi | 2 Gelişmeli | 1 Yetersiz |
 |---|---|---|---|---|
-| A, Doğruluk | ☐ | ☐ | ☐ | ☐ |
-| B, SQL kalitesi | ☐ | ☐ | ☐ | ☐ |
-| C, Yorum ve analiz | ☐ | ☐ | ☐ | ☐ |
-| D, Git ve PR disiplini | ☐ | ☐ | ☐ | ☐ |
-| E, Dürüstlük ve beyan | ☐ | ☐ | ☐ | ☐ |
+| A, Doğruluk | ☐ | ☒ | ☐ | ☐ |
+| B, SQL kalitesi | ☐ | ☒ | ☐ | ☐ |
+| C, Yorum ve analiz | ☐ | ☒ | ☐ | ☐ |
+| D, Git ve PR disiplini | ☐ | ☒ | ☐ | ☐ |
+| E, Dürüstlük ve beyan | ☒ | ☐ | ☐ | ☐ |
 
 Bir dahaki ödevde daha iyi yapacağım şey:
 
-______________________________________________________________________
+Sorguları kendim yazıp denemek ve yorumları kendi cümlelerimle yazmak.
 
 ---
 
 ## 7. Bana sorun
 
-Anlamadığın, merak ettiğin ya da derste tekrar görmek istediğin bir konu:
-
-______________________________________________________________________
-
-______________________________________________________________________
+Bu ödevde tekrar anlatılmasını istediğim bir konu kalmadı.
 
 ---
 
