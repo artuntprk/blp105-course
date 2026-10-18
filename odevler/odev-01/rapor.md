@@ -2,7 +2,7 @@
 
 Ad soyad: Artun Toprak Dereli
 Öğrenci no: 202607131017
-PR bağlantısı: (PR'ı açınca buraya yapıştıracağım)
+PR bağlantısı: github.com/artuntprk/blp105-course/pull/1
 
 ## Ne yaptım (her bölüm için 1-2 cümle)
 - Bölüm 1: Soru 1.1'de kodu çalıştırmadan izleyip total = 14, result = [7, 9, 5, 1] buldum. 1.2'de eşik üstündeki en uzun seriyi bulan bir döngü yazdım (sonuç 5). 1.3'te sözlükle ders sayısını hesapladım.
